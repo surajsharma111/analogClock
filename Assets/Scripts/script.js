@@ -1,18 +1,13 @@
-const bck = document.querySelector(".container");
+setInterval(() =>{
+   d = new Date();
+   hourTime = d.getHours();
+   minuteTime = d.getMinutes();
+   secondTime = d.getSeconds();
+   hourRotation = 30*hourTime + minuteTime/2;
+   minuteRotation = 6*minuteTime;
+   secondRotation = 6*secondTime;
 
-const randomColor = () => {
-  let color = 'rgba(';
-  for(let i = 0;i< 3;i++){
-    color += Math.floor(Math.random() * 255) + ',';
-  }
-  return color;
-}
-
-const paint = () => {
-  clr = randomColor();
-  clr1 = randomColor();
-  document.documentElement.style.setProperty('--clr', clr + '1)');
-  document.documentElement.style.setProperty('--clr1', clr1 + '1)');
-};
-
-setInterval(paint, 100);
+   document.getElementById("hour").style.transform = `rotate(${hourRotation}deg)`;
+   document.getElementById("minute").style.transform = `rotate(${minuteRotation}deg)`;
+   document.getElementById("second").style.transform = `rotate(${secondRotation}deg)`;
+})
